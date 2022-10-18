@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鸡你太美</title>
+
+</head>
+<style>
+    /* 定义动画规则 */
+    @keyframes king{
+    0%{transform: translateY(0) rotate(0);}
+    25%{transform: translateY(-5px) translateX(5px) rotateZ(5deg) scale(1.2);}
+    50%{transform: translateY(0) translateX(0px) rotate(0) scale(1);}
+    75%{transform: translateY(-5px) translateX(-5px) rotateZ(-5deg) scale(1.2);}
+    100%{transform: translateY(0) translateX(0px) rotate(0) scale(1);}
+}
+img{
+    height: 320px;
+    position: absolute;
+    top: 50px;
+    left: 500px;
+    /* 调用动画 */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: king 0.5s infinite forwards;
+
+}
+</style>
+<body >
+
+    <img class="caixukun" src="1.png" alt="鸡你太美" title="坤坤最帅">
+
+
+</body>
+</html>

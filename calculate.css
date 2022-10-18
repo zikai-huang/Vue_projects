@@ -1,0 +1,161 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: consolas;
+}
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #edf1f4;
+}
+.calculator
+{
+  position: relative;
+  width: 340px;
+  background-color: #33393e;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 8px;
+}
+.buttons
+{
+  position: relative;
+  display: grid;
+}
+#value
+{
+  display: grid;
+  position: relative;
+  left: 8px;
+  grid-column: span 4;
+  height: 100px;
+  line-height: 100px;
+  padding: 0 20px;
+  border-radius: 10px;
+  text-align: end;
+  font-size: 3em;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 12px;
+  color: #0a0a0a;
+  overflow: hidden;
+  font-weight: 400;
+  width: calc(100% - 16px);
+  user-select: none;
+  background-color: #0b5c0e;
+  box-shadow: inset 5px 5px 10px rgba(12, 12, 12);
+}
+.calculator .buttons span
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  min-width: 40px;
+  font-size: 1.2em;
+  color: rgb(87, 84, 84);
+  background-color: #33393e;
+  font-weight: 700;
+  border: 1px solid #2b2a2a;
+  box-shadow: 5px 5px 10px rgb(26, 25, 25);
+  cursor: pointer;
+  user-select: none;
+}
+.calculator .buttons span:active
+{
+  box-shadow:inset -1px -1px 1px rgb(7, 7, 7);
+}
+.calculator .buttons span#clear
+{
+  grid-column: span 2;
+  background: #13279b;
+  color: rgb(87, 84, 84);
+}
+.calculator .buttons span#plus
+{
+  grid-row: span 2;
+  background: #207923;
+  color: rgb(87, 84, 84);
+}
+.calculator .buttons span#equal
+{
+  grid-row: span 2;
+  background: #a71a08;
+  color: rgb(138, 132, 132);
+}
+.calculator .buttons span#clear:active,
+.calculator .buttons span#plus:active,
+.calculator .buttons span#equal:active
+{
+  box-shadow: 1px 1px 1px #fff,
+
+}
+.toggleBtn
+{
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+  background: #555;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #edf1f4;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1),
+  -5px -5px 10px #fff;
+}
+.dark .toggleBtn
+{
+  background: #edf1f4;
+  border: 2px solid #333;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+  -5px -5px 10px rgba(255,255,255,0.25);
+}
+.dark
+{
+  background: #282c2f;
+}
+.dark .calculator
+{
+  background: #33393e;
+  box-shadow: 15px 15px 20px rgba(0,0,0,0.25),
+  -15px -15px 20px rgba(255,255,255,0.1);
+}
+.dark .calculator #value
+{
+  color: #eee;
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.5),
+  inset -5px -5px 20px rgba(255,255,255,0.1);
+}
+.dark .calculator .buttons span
+{
+  color: #eee;
+  border: 2px solid #333;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.25),
+  -5px -5px 10px rgba(255,255,255,0.1);
+}
+.dark .calculator .buttons span:active
+{
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.25),
+  inset -5px -5px 10px rgba(255,255,255,0.1);
+}
+.dark .calculator .buttons span#clear,
+.dark .calculator .buttons span#plus,
+.dark .calculator .buttons span#equal
+{
+  border: 2px solid #333;;
+}
+.dark .calculator .buttons span#clear:active,
+.dark .calculator .buttons span#plus:active,
+.dark .calculator .buttons span#equal:active
+{
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+    <a href="https://blog.csdn.net/qq_44537625/article/details/100040169">this is another page!</a>
+    <br>
+    <br>
+    <br>
+    <title>this is a HTML!</title>
+    <script>
+        setInterval(() => {changeimg()}, 1000);
+        function changeimg(){
+            let img = document.getElementById('myimg');
+            //alert(img.src)
+            if(img.src.match('pic_bulbon')){
+                img.src='pic_bulboff.gif';
+            }else{
+                img.src='pic_bulbon.gif'
+            }
+        }
+
+    </script>
+    <style>
+        #show1, #show2{
+            color: rgb(231, 4, 212);
+            background-color: aquamarine;
+            width: 100px;
+            height: 50px;
+            text-align:center;
+            border-radius: 50%;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height:50px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="p1">
+        enjoy this page for a second!
+    </p>
+    <img id="myimg" title="this is an image!" border="0" src="pic_bulbon.gif" width="100" height="180" onclick="changeimg()" draggable="true">
+    <p id="p2">click to open/close it!
+        <br><br>
+        <input type="button" value="this is a button" class="addAlert-close" onclick="openurl()">
+    </p>
+    <ul id="ul" style="color: red;">
+        this is ul!
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+    <input class="getinput" type="radio" name="gender" value="男" onclick="setinput(this.value)">男
+    <input class="getinput" type="radio" name="gender" value="女" onclick="setinput(this.value)">女
+    <input type="button" class="btn" value="提交" onclick="getinput()">
+    <br><br>
+
+    <div id="show1"></div>
+    <br>
+    <div id="show2"></div>
+    <br><br>
+
+    <script>
+        let get_input = {};
+        let n;
+
+        const bucket = new Set();
+        let acteffect;
+        function effect(fu){
+            acteffect=fu;
+            fu();
+        }
+
+        const handler = {
+            get(target, key){
+                bucket.add(acteffect);
+                return target[key];
+            },
+            set(target, key, new_value){
+                target[key]=new_value;
+                bucket.forEach(each=>each());
+                return true;
+            }
+        }
+        const proxy = new Proxy(get_input, handler);
+
+        function setinput(input){
+            get_input.text=input;
+        }
+        function getinput(){
+            proxy.text=get_input.text;
+        }
+
+        //effect();
+        setTimeout(()=>{proxy.text='0000';}, 3000);
+
+        effect(()=>{
+            document.getElementById('show1').textContent=proxy.text;
+        });
+        effect(()=>{
+            document.getElementById('show2').textContent=proxy.text;
+        });
+
+        //alert(sex.value)
+        function openurl(){
+            var isopen = window.confirm('are you sure?');
+            if(isopen)
+                window.open("https://blog.csdn.net/qq_43363884/article/details/88285332");
+            else
+                alert('you refuse open it!');
+        }
+
+    </script>
+    <table border="2" width="50%" height="200" style="background-color: aqua; text-align: center;">
+        there is a table：
+        <tbody>
+            <tr>
+                <td>1,1</td>
+                <td>Cell 2,1</td>
+            </tr>
+            <tr>
+                <td>Cell 1,1</td>
+                <td>Cell 2,1</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
